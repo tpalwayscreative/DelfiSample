@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_margin="30dp"
+    android:id="@+id/llHomeCell"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="20dp"
+    android:background="@drawable/bg_button_border_light_gray"
+    android:layout_height="wrap_content">
+    <delfi.com.vn.tpcreative.common.ui.FontTextView
+        style="@style/brandonbldTextView"
+        app:spacing="1"
+        android:text="Add some text"
+        android:textSize="20sp"
+        android:maxLines="5"
+        android:textColor="@color/color_blue"
+        android:id="@+id/tvHomeCell"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>
