@@ -1,4 +1,4 @@
-package delfi.com.vn.newsample.ui.gridview.view;
+package delfi.com.vn.newsample.ui.gridview;
 
 import android.content.Context;
 import android.widget.LinearLayout;

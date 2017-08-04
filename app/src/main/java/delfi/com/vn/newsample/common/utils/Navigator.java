@@ -3,8 +3,8 @@ package delfi.com.vn.newsample.common.utils;
 import android.content.Context;
 import android.content.Intent;
 
-import delfi.com.vn.newsample.ui.gridview.activity.GridViewActivity;
-import delfi.com.vn.newsample.ui.recyclerview.activity.RecyclerViewActivity;
+import delfi.com.vn.newsample.ui.gridview.GridViewActivity;
+import delfi.com.vn.newsample.ui.recyclerview.RecyclerViewActivity;
 
 /**
  * Created by PC on 8/3/2017.

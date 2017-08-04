@@ -1,6 +1,5 @@
-package delfi.com.vn.newsample.ui.login.view;
+package delfi.com.vn.newsample.ui.signup;
 
-import delfi.com.vn.newsample.model.CUsers;
 import delfi.com.vn.tpcreative.common.presenter.BaseView;
 
 /**

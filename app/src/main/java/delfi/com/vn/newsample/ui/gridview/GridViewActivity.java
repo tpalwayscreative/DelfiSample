@@ -1,36 +1,35 @@
-package delfi.com.vn.newsample.ui.recyclerview.activity;
-import android.content.Intent;
+package delfi.com.vn.newsample.ui.gridview;
+
+import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import delfi.com.vn.newsample.common.utils.Navigator;
 import delfi.com.vn.newsample.model.CProduct;
 import delfi.com.vn.newsample.R;
-import delfi.com.vn.newsample.ui.gridview.activity.GridViewActivity;
 import delfi.com.vn.tpcreative.common.activity.BaseActivity;
-import delfi.com.vn.tpcreative.ui.recycleview.DPRecyclerView;
-import delfi.com.vn.tpcreative.ui.recycleview.RecyclerViewAdapter;
+import delfi.com.vn.tpcreative.ui.gridview.DPGridView;
+import delfi.com.vn.tpcreative.ui.gridview.GridViewAdapter;
 
-public class RecyclerViewActivity extends BaseActivity implements DPRecyclerView.ListenerRecycleView {
+public class GridViewActivity extends BaseActivity implements DPGridView.ListenerGridView,GridViewView {
 
-    @BindView(R.id.rlHome)
-    RecyclerView recyclerView;
+    @BindView(R.id.gridview)
+    GridView gridView;
+    private GridViewAdapter adapter ;
     List<CProduct> list;
-    DPRecyclerView customRecycleView ;
-    RecyclerViewAdapter adapter ;
     private ViewHolder viewHolder ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recyclerview);
+        setContentView(R.layout.activity_grid_view);
         list = new ArrayList<>();
         list.add(new CProduct("\"'A' - You're Adorable\" (Sid Lippman, Buddy Kaye and Fred Wise)"));
         list.add(new CProduct("\"A Hard Rain's a-Gonna Fall\" (Bob Dylan)"));
@@ -40,37 +39,59 @@ public class RecyclerViewActivity extends BaseActivity implements DPRecyclerView
         list.add(new CProduct("\"Around the World\" (Red Hot Chili Peppers)"));
         list.add(new CProduct("\"A Well-Dressed Hobbit\" (Rie Sheridan Rose, Marc Gunn)"));
         list.add(new CProduct("\"All My Ex's Live in Texas\" (George Strait and Whitey Shafer)"));
-        adapter = DPRecyclerView.instance(this,recyclerView,R.layout.home_cell_recyclerview,this).adapterRecycleView();
-        adapter.setDataSource(new ArrayList(list));
+        adapter = DPGridView.instance(this,gridView,R.layout.home_cell_gridview, this,new ArrayList(list)).gridViewAdapter();
+        adapter.notifyDataSetChanged();
     }
 
     @Override
-    public void onShowData(Object anyObject) {
-        CProduct product = (CProduct) anyObject;
-        adapter.getAdapterRecycleViewHolder().onClick(viewHolder.llHomeCell);
+    public void onShowData(Object object) {
+        CProduct product = (CProduct)object;
         viewHolder.textView.setText(product.name);
-    }
-
-    @Override
-    public void onSetView(View view) {
-        viewHolder = new ViewHolder(view);
-        view.setTag(viewHolder);
     }
 
     @Override
     public void onShowPosition(int position) {
         Toast.makeText(getApplicationContext(),"Show position now : " + position,Toast.LENGTH_SHORT).show();
-        Navigator.moveToGridView(this);
+    }
+
+    @Override
+    public void onSetView(View view) {
+        viewHolder = new ViewHolder(view) ;
+        view.setTag(viewHolder);
+    }
+
+    @Override
+    public TextView tvName() {
+        return viewHolder.textView;
+    }
+
+    @Override
+    public LinearLayout llName() {
+        return viewHolder.llHomeCell;
+    }
+
+    @Override
+    public void onShowLoading() {
+
+    }
+
+    @Override
+    public void onHideLoading() {
+
+    }
+
+    @Override
+    public Context getContext() {
+        return getApplicationContext();
     }
 
     protected class ViewHolder {
         @BindView(R.id.tvHomeCell)
         TextView textView ;
         @BindView(R.id.llHomeCell)
-        LinearLayout llHomeCell;
+        LinearLayout llHomeCell ;
         public ViewHolder(View view) {
             ButterKnife.bind(this, view);
         }
     }
 }
-

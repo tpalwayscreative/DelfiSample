@@ -1,8 +1,6 @@
-package delfi.com.vn.newsample.ui.login.activity;
+package delfi.com.vn.newsample.ui.signup;
 
 import android.content.Context;
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -11,8 +9,6 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import delfi.com.vn.newsample.R;
 import delfi.com.vn.newsample.common.utils.Navigator;
-import delfi.com.vn.newsample.ui.login.presenter.SignUpPresenter;
-import delfi.com.vn.newsample.ui.login.view.SignUpView;
 import delfi.com.vn.tpcreative.common.activity.BaseActivity;
 
 public class SignUpMainActivity extends BaseActivity implements SignUpView {

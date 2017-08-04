@@ -1,8 +1,7 @@
-package delfi.com.vn.newsample.ui.login.presenter;
+package delfi.com.vn.newsample.ui.signup;
 
 import android.app.Activity;
 import delfi.com.vn.newsample.R;
-import delfi.com.vn.newsample.ui.login.view.SignUpView;
 import delfi.com.vn.tpcreative.common.presenter.Presenter;
 
 /**
